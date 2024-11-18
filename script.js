@@ -18,4 +18,15 @@ function primitiveMultiply(a, b) {
 
 function reliableMultiply(a, b) {
   // Your code here.
+  while (true) {
+    try {
+      return primitiveMultiply(a, b);
+    } catch (e) {
+      if (!(e instanceof MultiplicatorUnitFailure)) {
+        throw e;
+      }
+    }
+  }
 }
+
+console.log(reliableMultiply(8, 8));
